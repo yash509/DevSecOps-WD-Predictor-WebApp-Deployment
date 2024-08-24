@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wd-prediction-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: wd-prediction
+  template:
+    metadata:
+      labels:
+        app: wd-prediction
+    spec:
+      containers:
+      - name: wd-prediction
+        image: yash5090/wd-prediction:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5000
