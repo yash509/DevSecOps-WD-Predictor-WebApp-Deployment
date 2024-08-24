@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lms-system-deployment
+  name: wd-prediction-deployment
 spec:
-  replicas: 3 # You can adjust the number of replicas as needed
+  replicas: 6 # You can adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: lms-system
+      app: wd-prediction
   template:
     metadata:
       labels:
-        app: lms-system
+        app: wd-prediction
     spec:
       containers:
-        - name: lms-system
-          image: yash5090/lms-system:latest # Replace with the actual image tag
+        - name: wd-prediction
+          image: yash5090/wd-prediction:latest # Replace with the actual image tag
           ports:
             - containerPort: 5000 # Replace with the port your Tetris game listens on
